@@ -1,8 +1,15 @@
 package com.example.mynewcompose
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.mynewcompose.ui.theme.MyNewComposeTheme
 
 @Composable
@@ -31,3 +38,13 @@ fun DefaultPreview() {
     }
 }
 
+// Modifier
+@Composable
+fun MyText() {
+    Text(
+        text = "Soy Diego", modifier = Modifier
+            .fillMaxSize().padding(horizontal = 3.dp)
+            .clickable {  }
+    )
+
+}
