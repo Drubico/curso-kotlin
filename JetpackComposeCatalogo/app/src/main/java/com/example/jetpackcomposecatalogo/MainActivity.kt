@@ -1,9 +1,11 @@
 package com.example.jetpackcomposecatalogo
 
 import android.os.Bundle
+import android.widget.HorizontalScrollView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -17,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +52,23 @@ fun MyColumn() {
     }
 }
 
+@Composable
+fun MyRow() {
+    Row(
+        Modifier
+            .fillMaxSize()
+            .horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(text = "Ejemplo 1", modifier = Modifier.background(Color.Red))
+        Text(text = "Ejemplo 2", modifier = Modifier.background(Color.Cyan))
+        Text(text = "Ejemplo 3", modifier = Modifier.background(Color.Black))
+        Text(text = "Ejemplo 4", modifier = Modifier.background(Color.Green))
+        Text(text = "Ejemplo 4", modifier = Modifier.background(Color.Green))
+        Text(text = "Ejemplo 4", modifier = Modifier.background(Color.Green))
+        Text(text = "Ejemplo 4", modifier = Modifier.background(Color.Green))
+    }
+}
 
 // * Modifier.fillMaxSize() -> Toda la pantalla
 // * contentAlignment = Alignment.Center -> Las cosas al centro
@@ -73,6 +93,7 @@ fun MyBox() {
 fun DefaultPreview() {
     JetpackComposeCatalogoTheme {
         // MyBox()
-        MyColumn()
+        // MyColumn()
+        MyRow()
     }
 }
