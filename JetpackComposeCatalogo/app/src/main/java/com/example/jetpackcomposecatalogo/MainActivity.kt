@@ -1,6 +1,7 @@
 package com.example.jetpackcomposecatalogo
 
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -37,37 +38,57 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyComplexLayout(){
+fun MyComplexLayout() {
     Column(Modifier.fillMaxSize()) {
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .weight(1f)
-            .background(Color.Black), contentAlignment = Alignment.Center){
-            Text(text = "Ejemplo 1",color= Color.Blue)
-        }
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .weight(1f)){
-            Box(modifier = Modifier
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
                 .weight(1f)
-                .fillMaxHeight()
-                .background(Color.Blue),contentAlignment = Alignment.Center){
+                .background(Color.Black),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "Ejemplo 1", color = Color.Blue)
+        }
+        MySpacer(size = 80)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        ) {
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Blue),
+                contentAlignment = Alignment.Center
+            ) {
                 Text(text = "Ejemplo 2")
             }
-            Box(modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .background(Color.Green), contentAlignment = Alignment.Center){
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(Color.Green),
+                contentAlignment = Alignment.Center
+            ) {
                 Text(text = "Ejemplo 3")
             }
         }
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .weight(1f)
-            .background(Color.Red), contentAlignment = Alignment.BottomCenter){
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(Color.Red),
+            contentAlignment = Alignment.BottomCenter
+        ) {
             Text(text = "Ejemplo 4", textAlign = TextAlign.Center)
         }
     }
+}
+
+@Composable
+fun MySpacer(size: Int) {
+    Spacer(modifier = Modifier.size(size.dp))
 }
 
 
