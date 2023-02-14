@@ -1,7 +1,6 @@
 package com.example.jetpackcomposecatalogo
 
 import android.os.Bundle
-import android.widget.HorizontalScrollView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -16,10 +15,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +35,41 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Composable
+fun MyComplexLayout(){
+    Column(Modifier.fillMaxSize()) {
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f)
+            .background(Color.Black), contentAlignment = Alignment.Center){
+            Text(text = "Ejemplo 1",color= Color.Blue)
+        }
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f)){
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.Blue),contentAlignment = Alignment.Center){
+                Text(text = "Ejemplo 2")
+            }
+            Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .background(Color.Green), contentAlignment = Alignment.Center){
+                Text(text = "Ejemplo 3")
+            }
+        }
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .weight(1f)
+            .background(Color.Red), contentAlignment = Alignment.BottomCenter){
+            Text(text = "Ejemplo 4", textAlign = TextAlign.Center)
+        }
+    }
+}
+
 
 @Composable
 fun MyColumn() {
@@ -94,6 +128,7 @@ fun DefaultPreview() {
     JetpackComposeCatalogoTheme {
         // MyBox()
         // MyColumn()
-        MyRow()
+        // MyRow()
+        MyComplexLayout()
     }
 }
