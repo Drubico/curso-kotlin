@@ -136,6 +136,6 @@ fun ConstraintChainExample() {
             }
         )
         createHorizontalChain(boxRed,boxGreen,boxYellow, chainStyle = ChainStyle.SpreadInside)
-        
+
     }
 }

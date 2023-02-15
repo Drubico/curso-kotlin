@@ -138,7 +138,7 @@ fun MyBox() {
                 .verticalScroll(rememberScrollState()), contentAlignment = Alignment.BottomCenter
         ) {
 
-            Text(text = "Esto es un ejemplo")
+            MyStateExample()
         }
     }
 }
@@ -150,6 +150,7 @@ fun DefaultPreview() {
         // MyBox()
         // MyColumn()
         // MyRow()
-        MyComplexLayout()
+        //MyComplexLayout()
+        MyStateExample()
     }
 }
