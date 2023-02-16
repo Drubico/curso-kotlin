@@ -30,7 +30,9 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    MyBox()
+                    Column() {
+                        MyTextFieldOutlined()
+                    }
                 }
             }
         }
@@ -138,7 +140,6 @@ fun MyBox() {
                 .verticalScroll(rememberScrollState()), contentAlignment = Alignment.BottomCenter
         ) {
 
-            MyStateExample()
         }
     }
 }
@@ -151,6 +152,7 @@ fun DefaultPreview() {
         // MyColumn()
         // MyRow()
         //MyComplexLayout()
-        MyStateExample()
+        // MyStateExample()
+        MyText()
     }
 }
