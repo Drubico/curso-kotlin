@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,17 +32,27 @@ fun MyButtonExample() {
             .padding(24.dp)
     ) {
         Button(
-            onClick = { enabled= false },
+            onClick = { enabled = false },
             enabled = enabled,
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Color.Magenta,
                 contentColor = Color.Blue
             ),
-            border = BorderStroke(5.dp,Color.Green)
+            border = BorderStroke(5.dp, Color.Green)
         ) {
             Column() {
                 Text(text = "Hola")
             }
+        }
+        OutlinedButton(
+            onClick = { enabled = false }, modifier = Modifier.padding(top = 8.dp),
+            enabled = enabled,
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color.Magenta,
+                contentColor = Color.Blue
+            ),
+        ) {
+            Text(text = "Hola")
         }
     }
 }
