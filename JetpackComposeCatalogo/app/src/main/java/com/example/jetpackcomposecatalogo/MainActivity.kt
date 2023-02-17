@@ -34,13 +34,14 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    Column() {
-                        MyTextFieldOutlined()
-                        var myText by remember {
-                            mutableStateOf("")
-                        }
-                        MyTextFieldWithoutState(myText) { myText = it }
-                    }
+//                    Column() {
+//                        MyTextFieldOutlined()
+//                        var myText by remember {
+//                            mutableStateOf("")
+//                        }
+//                        MyTextFieldWithoutState(myText) { myText = it }
+//                    }
+                    MyButtonExample()
                 }
             }
         }
