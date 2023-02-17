@@ -5,10 +5,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -52,6 +49,10 @@ fun MyButtonExample() {
                 contentColor = Color.Blue
             ),
         ) {
+            Text(text = "Hola")
+        }
+
+        TextButton(onClick = {  }) {
             Text(text = "Hola")
         }
     }
