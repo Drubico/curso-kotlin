@@ -41,7 +41,10 @@ class MainActivity : ComponentActivity() {
 //                        }
 //                        MyTextFieldWithoutState(myText) { myText = it }
 //                    }
-                    MyButtonExample()
+                    // MyButtonExample()
+                    // MyProgress()
+                    // MyProgressAdvanced()
+                    MyProgressAdvance()
                 }
             }
         }
