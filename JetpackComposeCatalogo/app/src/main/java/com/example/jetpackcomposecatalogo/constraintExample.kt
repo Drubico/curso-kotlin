@@ -13,7 +13,7 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
-fun ConstraintExample1() {
+fun ConstraintExample() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 
         val (boxRed, boxBlue, boxYellow, boxMagenta, boxWhite) = createRefs()
