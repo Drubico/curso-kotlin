@@ -52,7 +52,7 @@ fun MyButtonExample() {
             Text(text = "Hola")
         }
 
-        TextButton(onClick = {  }) {
+        TextButton(onClick = { }) {
             Text(text = "Hola")
         }
     }
