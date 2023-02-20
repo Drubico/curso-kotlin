@@ -72,14 +72,14 @@ class MainActivity : ComponentActivity() {
 //                        MyTriStatusCheckbox()
 //                    }
 
-                    Column(Modifier.fillMaxSize()) {
-                        MyRadioButton()
-                        var selected by remember {
-                            mutableStateOf("Aris")
-                        }
-                        MyRadioButtonList(selected){selected = it}
-                    }
-
+//                    Column(Modifier.fillMaxSize()) {
+//                        MyRadioButton()
+//                        var selected by remember {
+//                            mutableStateOf("Aris")
+//                        }
+//                        MyRadioButtonList(selected){selected = it}
+//                    }
+                    MyCard()
                 }
             }
         }
