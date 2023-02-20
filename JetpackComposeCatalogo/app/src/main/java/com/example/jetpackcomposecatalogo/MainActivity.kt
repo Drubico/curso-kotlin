@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
             JetpackComposeCatalogoTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.background
                 ) {
 //                    Column() {
 //                        MyTextFieldOutlined()
@@ -80,10 +80,11 @@ class MainActivity : ComponentActivity() {
 //                        MyRadioButtonList(selected){selected = it}
 //                    }
 //                    MyCard()
-                    Column(){
-                        MyBadgeBox()
-                        MyDivider()
-                    }
+//                    Column(){
+//                        MyBadgeBox()
+//                        MyDivider()
+//                    }
+                    MyDropDownMenu()
                 }
             }
         }
