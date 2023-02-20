@@ -44,7 +44,8 @@ class MainActivity : ComponentActivity() {
                     // MyButtonExample()
                     // MyProgress()
                     // MyProgressAdvanced()
-                    MyProgressAdvance()
+//                    MyProgressAdvance()
+                    MySwitch()
                 }
             }
         }
