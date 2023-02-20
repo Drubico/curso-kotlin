@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecatalogo.data.CheckInfo
 
@@ -74,4 +75,18 @@ fun MyCheckBoxWithTextAdvanced(checkInfo: CheckInfo) {
         Spacer(modifier = Modifier.width(8.dp))
         Text(text = checkInfo.title)
     }
+}
+
+@Composable
+fun MyTriStatusCheckbox() {
+    var status by rememberSaveable {
+        mutableStateOf(ToggleableState.Off)
+    }
+    TriStateCheckbox(state = status, onClick = {
+        status =when(status){
+            ToggleableState.On -> ToggleableState.Off
+            ToggleableState.Off -> ToggleableState.Indeterminate
+            ToggleableState.Indeterminate -> ToggleableState.On
+        }
+    })
 }

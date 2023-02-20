@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                             MyCheckBoxWithTextAdvanced(it)
                             Log.i("Estados ","${it.title} -> ${it.selected}" )
                         }
-
+                        MyTriStatusCheckbox()
                     }
                 }
             }
