@@ -84,7 +84,8 @@ class MainActivity : ComponentActivity() {
 //                        MyBadgeBox()
 //                        MyDivider()
 //                    }
-                    MyDropDownMenu()
+//                    MyDropDownMenu()
+                    BasicSlider()
                 }
             }
         }
