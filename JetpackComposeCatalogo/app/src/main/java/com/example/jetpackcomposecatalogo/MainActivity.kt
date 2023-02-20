@@ -74,6 +74,10 @@ class MainActivity : ComponentActivity() {
 
                     Column(Modifier.fillMaxSize()) {
                         MyRadioButton()
+                        var selected by remember {
+                            mutableStateOf("Aris")
+                        }
+                        MyRadioButtonList(selected){selected = it}
                     }
 
                 }

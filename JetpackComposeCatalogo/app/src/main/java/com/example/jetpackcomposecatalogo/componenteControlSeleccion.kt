@@ -2,13 +2,11 @@ package com.example.jetpackcomposecatalogo
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecatalogo.data.CheckInfo
@@ -102,5 +100,33 @@ fun MyRadioButton() {
             )
         )
         Text(text = "Ejemplo 1")
+    }
+}
+
+@Composable
+fun MyRadioButtonList(name:String,onItemSelected:(String) -> Unit) {
+    Column(Modifier.fillMaxWidth()) {
+        Row() {
+            RadioButton(
+                selected = name == "Ejemplo 1", onClick = { onItemSelected("Ejemplo 1") }
+            )
+            Text(text = "Ejemplo 1")
+        }
+        Row() {
+            RadioButton(
+                selected = name == "Ejemplo 2", onClick = {  onItemSelected("Ejemplo 2")}
+            )
+            Text(text = "Ejemplo 2")
+        }
+        Row() {
+            RadioButton(
+                selected = name == "Ejemplo 3", onClick = { onItemSelected("Ejemplo 3") }
+            )
+            Text(text = "Ejemplo 3")
+        }
+        Row () {
+            RadioButton(selected = name == "Ejemplo 4", onClick = {  onItemSelected("Ejemplo 4") })
+            Text(text = "Ejemplo 4")
+        }
     }
 }
