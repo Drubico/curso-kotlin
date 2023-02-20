@@ -85,7 +85,8 @@ class MainActivity : ComponentActivity() {
 //                        MyDivider()
 //                    }
 //                    MyDropDownMenu()
-                    BasicSlider()
+//                    BasicSlider()
+                    AdvanceSlider()
                 }
             }
         }
