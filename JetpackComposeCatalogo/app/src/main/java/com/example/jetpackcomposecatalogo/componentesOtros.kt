@@ -49,3 +49,8 @@ fun MyBadgeBox() {
         }
     }
 }
+
+@Composable
+fun MyDivider(){
+    Divider(Modifier.fillMaxWidth().padding(top = 16.dp), color = Color.Red)
+}

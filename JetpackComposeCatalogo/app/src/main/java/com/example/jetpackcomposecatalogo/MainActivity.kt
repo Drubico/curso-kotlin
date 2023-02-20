@@ -80,7 +80,10 @@ class MainActivity : ComponentActivity() {
 //                        MyRadioButtonList(selected){selected = it}
 //                    }
 //                    MyCard()
-                    MyBadgeBox()
+                    Column(){
+                        MyBadgeBox()
+                        MyDivider()
+                    }
                 }
             }
         }
