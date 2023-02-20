@@ -45,7 +45,8 @@ class MainActivity : ComponentActivity() {
                     // MyProgress()
                     // MyProgressAdvanced()
 //                    MyProgressAdvance()
-                    MySwitch()
+//                    MySwitch()
+                    MyCheckBox()
                 }
             }
         }

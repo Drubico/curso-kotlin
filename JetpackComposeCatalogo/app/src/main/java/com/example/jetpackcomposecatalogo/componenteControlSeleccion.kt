@@ -1,5 +1,7 @@
 package com.example.jetpackcomposecatalogo
 
+import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Switch
 import androidx.compose.material.SwitchDefaults
 import androidx.compose.runtime.Composable
@@ -29,5 +31,20 @@ fun MySwitch() {
             disabledUncheckedTrackColor = Color.Yellow
         )
     )
+}
 
+@Composable
+fun MyCheckBox() {
+    var estado by rememberSaveable { mutableStateOf(true) }
+
+    Checkbox(
+        checked = estado,
+        onCheckedChange = { estado = !estado },
+        enabled = true,
+        colors = CheckboxDefaults.colors(
+            checkedColor = Color.Red,
+            uncheckedColor = Color.Yellow,
+            checkmarkColor = Color.Blue
+        )
+    )
 }
