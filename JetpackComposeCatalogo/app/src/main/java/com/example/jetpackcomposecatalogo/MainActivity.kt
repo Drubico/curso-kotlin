@@ -79,7 +79,8 @@ class MainActivity : ComponentActivity() {
 //                        }
 //                        MyRadioButtonList(selected){selected = it}
 //                    }
-                    MyCard()
+//                    MyCard()
+                    MyBadgeBox()
                 }
             }
         }
