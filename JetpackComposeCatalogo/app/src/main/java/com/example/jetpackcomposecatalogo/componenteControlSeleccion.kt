@@ -10,6 +10,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.jetpackcomposecatalogo.data.CheckInfo
 
 @Composable
 fun MySwitch() {
@@ -61,5 +62,16 @@ fun MyCheckBoxWithText() {
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Ejemplo 2")
         }
+    }
+}
+
+@Composable
+fun MyCheckBoxWithTextAdvanced(checkInfo: CheckInfo) {
+    Row(modifier = Modifier.padding(8.dp)) {
+        Checkbox(
+            checked = checkInfo.selected,
+            onCheckedChange = { checkInfo.onCheckedChange(!checkInfo.selected) })
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = checkInfo.title)
     }
 }
