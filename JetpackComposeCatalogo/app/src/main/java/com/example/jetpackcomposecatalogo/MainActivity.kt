@@ -53,23 +53,29 @@ class MainActivity : ComponentActivity() {
 //                    MyCheckBox()
 //                    MyCheckBoxWithText()
 
-                    var status by rememberSaveable {
-                        mutableStateOf(false)
-                    }
-                    val checkInfo = CheckInfo(
-                        title = "El de la lambda",
-                        selected = status,
-                        onCheckedChange = { status = it }
-                    )
-                    val myOptions = getOptions(listOf("Aris", "Ejemplo", "Pikachu"))
+//                    var status by rememberSaveable {
+//                        mutableStateOf(false)
+//                    }
+//                    val checkInfo = CheckInfo(
+//                        title = "El de la lambda",
+//                        selected = status,
+//                        onCheckedChange = { status = it }
+//                    )
+//                    val myOptions = getOptions(listOf("Aris", "Ejemplo", "Pikachu"))
+//
+//                    Column(Modifier.fillMaxSize()) {
+//                        MyCheckBoxWithTextAdvanced(checkInfo)
+//                        myOptions.forEach {
+//                            MyCheckBoxWithTextAdvanced(it)
+//                            Log.i("Estados ","${it.title} -> ${it.selected}" )
+//                        }
+//                        MyTriStatusCheckbox()
+//                    }
+
                     Column(Modifier.fillMaxSize()) {
-                        MyCheckBoxWithTextAdvanced(checkInfo)
-                        myOptions.forEach {
-                            MyCheckBoxWithTextAdvanced(it)
-                            Log.i("Estados ","${it.title} -> ${it.selected}" )
-                        }
-                        MyTriStatusCheckbox()
+                        MyRadioButton()
                     }
+
                 }
             }
         }

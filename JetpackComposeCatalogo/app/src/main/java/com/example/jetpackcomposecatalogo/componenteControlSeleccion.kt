@@ -83,10 +83,24 @@ fun MyTriStatusCheckbox() {
         mutableStateOf(ToggleableState.Off)
     }
     TriStateCheckbox(state = status, onClick = {
-        status =when(status){
+        status = when (status) {
             ToggleableState.On -> ToggleableState.Off
             ToggleableState.Off -> ToggleableState.Indeterminate
             ToggleableState.Indeterminate -> ToggleableState.On
         }
     })
+}
+
+@Composable
+fun MyRadioButton() {
+    Row(Modifier.fillMaxWidth()) {
+        RadioButton(
+            selected = false, onClick = { /*TODO*/ }, colors = RadioButtonDefaults.colors(
+                selectedColor = Color.Red,
+                unselectedColor = Color.Yellow,
+                disabledColor = Color.Green
+            )
+        )
+        Text(text = "Ejemplo 1")
+    }
 }
