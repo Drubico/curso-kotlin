@@ -109,8 +109,28 @@ class MainActivity : ComponentActivity() {
 //                        onConfirm = { show = false })
 
                     /*
-                   * My Custom Dialog Example
+                   * My Simple Custom Dialog Example
                    * */
+//                    var show by rememberSaveable {
+//                        mutableStateOf(false)
+//                    }
+//                    Box(
+//                        Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+//                    ) {
+//                        Button(onClick = { show = true }) {
+//                            Text(text = "Show Dialog")
+//                        }
+//                    }
+//                    MySimpleCustomDialog(
+//                        show = show,
+//                        onDismiss = { show = false },
+//                        onConfirm = { show = false })
+//
+//                }
+
+                    /*
+                     * My Custom Dialog Example
+                     * */
                     var show by rememberSaveable {
                         mutableStateOf(false)
                     }
@@ -121,10 +141,9 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Show Dialog")
                         }
                     }
-                    MySimpleCustomDialog(
+                    MyCustomDialog(
                         show = show,
-                        onDismiss = { show = false },
-                        onConfirm = { show = false })
+                        onDismiss = { show = false })
 
                 }
             }
