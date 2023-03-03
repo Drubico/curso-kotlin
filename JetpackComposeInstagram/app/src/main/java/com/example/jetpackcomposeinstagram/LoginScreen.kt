@@ -5,9 +5,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,6 +22,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -54,9 +60,7 @@ fun Footer(modifier: Modifier) {
 fun SignUp() {
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
         Text(
-            text = "Don't have an account? ",
-            fontSize = 12.sp,
-            color = Color(0xFFB5B5B5)
+            text = "Don't have an account? ", fontSize = 12.sp, color = Color(0xFFB5B5B5)
         )
         Text(
             text = "Sign up.",
@@ -158,15 +162,53 @@ fun ForgotPassword(modifier: Modifier) {
 
 @Composable
 fun Password(password: String, onTextChanged: (String) -> Unit) {
-    TextField(
-        value = password, onValueChange = { onTextChanged(it) }, modifier = Modifier.fillMaxWidth()
+    var passwordVisibility by rememberSaveable { mutableStateOf(false) }
+    TextField(value = password,
+        onValueChange = { onTextChanged(it) },
+        modifier = Modifier.fillMaxWidth(),
+        placeholder = { Text(text = "Password") },
+        maxLines = 1,
+        singleLine = true,
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = Color(0xFFB2B2B2),
+            backgroundColor = Color(0xFFFAFAFA),
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+        ),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        trailingIcon = {
+            val imagen = if (passwordVisibility) {
+                Icons.Filled.VisibilityOff
+            } else {
+                Icons.Filled.Visibility
+            }
+            IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
+                Icon(imageVector = imagen, contentDescription = "Show Password")
+            }
+        },
+        visualTransformation = if (passwordVisibility) {
+            VisualTransformation.None
+        } else {
+            PasswordVisualTransformation()
+        }
     )
 }
 
 @Composable
 fun Email(email: String, onTextChanged: (String) -> Unit) {
-    TextField(
-        value = email, onValueChange = { onTextChanged(it) }, modifier = Modifier.fillMaxWidth()
+    TextField(value = email,
+        onValueChange = { onTextChanged(it) },
+        modifier = Modifier.fillMaxWidth(),
+        placeholder = { Text(text = "Email") },
+        maxLines = 1,
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = Color(0xFFB2B2B2),
+            backgroundColor = Color(0xFFFAFAFA),
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+        )
     )
 }
 
