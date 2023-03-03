@@ -11,6 +11,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -87,7 +88,22 @@ class MainActivity : ComponentActivity() {
 //                    MyDropDownMenu()
 //                    BasicSlider()
 //                    AdvanceSlider()
-                    MyRangeSlider()
+//                    MyRangeSlider()
+
+                    var show by rememberSaveable {
+                        mutableStateOf(false)
+                    }
+                    Box(
+                        Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+                    ) {
+                        Button(onClick = { show = true }) {
+                            Text(text = "Show Dialog")
+                        }
+                    }
+                    MyDialog(
+                        show = show,
+                        onDismiss = { show = false },
+                        onConfirm = { show = false })
                 }
             }
         }
@@ -100,11 +116,7 @@ fun getOptions(title: List<String>): List<CheckInfo> {
         var status by rememberSaveable {
             mutableStateOf(false)
         }
-        CheckInfo(
-            title = it,
-            selected = status,
-            onCheckedChange = { status = it }
-        )
+        CheckInfo(title = it, selected = status, onCheckedChange = { status = it })
     }
 }
 
