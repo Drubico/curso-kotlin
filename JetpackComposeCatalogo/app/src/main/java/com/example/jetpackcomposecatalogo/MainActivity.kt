@@ -90,6 +90,27 @@ class MainActivity : ComponentActivity() {
 //                    AdvanceSlider()
 //                    MyRangeSlider()
 
+                    /*
+                    * My Dialog Example
+                    * */
+//                    var show by rememberSaveable {
+//                        mutableStateOf(false)
+//                    }
+//                    Box(
+//                        Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+//                    ) {
+//                        Button(onClick = { show = true }) {
+//                            Text(text = "Show Dialog")
+//                        }
+//                    }
+//                    MyDialog(
+//                        show = show,
+//                        onDismiss = { show = false },
+//                        onConfirm = { show = false })
+
+                    /*
+                   * My Custom Dialog Example
+                   * */
                     var show by rememberSaveable {
                         mutableStateOf(false)
                     }
@@ -100,10 +121,11 @@ class MainActivity : ComponentActivity() {
                             Text(text = "Show Dialog")
                         }
                     }
-                    MyDialog(
+                    MySimpleCustomDialog(
                         show = show,
                         onDismiss = { show = false },
                         onConfirm = { show = false })
+
                 }
             }
         }
