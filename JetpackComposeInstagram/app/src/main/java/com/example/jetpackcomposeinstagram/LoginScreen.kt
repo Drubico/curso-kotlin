@@ -2,11 +2,10 @@ package com.example.jetpackcomposeinstagram
 
 import android.app.Activity
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
@@ -39,14 +38,76 @@ fun LoginScreen() {
 fun Body(modifier: Modifier) {
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
+    var isLoginEnable by rememberSaveable { mutableStateOf(false) }
+
     Column(modifier = modifier) {
-        ImageLogo()
+        ImageLogo(Modifier.align(Alignment.CenterHorizontally))
         Spacer(modifier = Modifier.size(16.dp))
         Email(email) { email = it }
         Spacer(modifier = Modifier.size(4.dp))
         Password(password) { password = it }
         Spacer(modifier = Modifier.size(8.dp))
         ForgotPassword(Modifier.align(Alignment.End))
+        Spacer(modifier = Modifier.size(16.dp))
+        LoginButton(isLoginEnable)
+        Spacer(modifier = Modifier.size(16.dp))
+        LoginDivider()
+        Spacer(modifier = Modifier.size(32.dp))
+        SocialLogin()
+    }
+}
+
+@Composable
+fun SocialLogin() {
+    Row(
+        Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.fb),
+            contentDescription = "Social Login Facebook",
+            modifier = Modifier.size(16.dp)
+        )
+        Text(
+            text = "Continue as Aris",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(horizontal = 8.dp),
+            color = Color(0xFF4EA8E9)
+        )
+    }
+}
+
+@Composable
+fun LoginDivider() {
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Divider(
+            Modifier
+                .background(Color(0xFFF9F9F9))
+                .height(1.dp)
+                .weight(1f)
+        )
+        Text(
+            text = "OR",
+            modifier = Modifier.padding(horizontal = 6.dp),
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFFB5B5B5)
+        )
+        Divider(
+            Modifier
+                .background(Color(0xFFF9F9F9))
+                .height(1.dp)
+                .weight(1f)
+        )
+    }
+}
+
+@Composable
+fun LoginButton(loginEnable: Boolean) {
+    Button(onClick = { }, enabled = loginEnable, modifier = Modifier.fillMaxWidth()) {
+        Text(text = "Log in")
     }
 }
 
@@ -63,17 +124,29 @@ fun ForgotPassword(modifier: Modifier) {
 
 @Composable
 fun Password(password: String, onTextChanged: (String) -> Unit) {
-    TextField(value = password, onValueChange = { onTextChanged(it) })
+    TextField(
+        value = password,
+        onValueChange = { onTextChanged(it) },
+        modifier = Modifier.fillMaxWidth()
+    )
 }
 
 @Composable
 fun Email(email: String, onTextChanged: (String) -> Unit) {
-    TextField(value = email, onValueChange = { onTextChanged(it) })
+    TextField(
+        value = email,
+        onValueChange = { onTextChanged(it) },
+        modifier = Modifier.fillMaxWidth()
+    )
 }
 
 @Composable
-fun ImageLogo() {
-    Image(painter = painterResource(id = R.drawable.insta), contentDescription = "Logo")
+fun ImageLogo(modifier: Modifier) {
+    Image(
+        painter = painterResource(id = R.drawable.insta),
+        contentDescription = "Logo",
+        modifier = modifier
+    )
 }
 
 @Composable
