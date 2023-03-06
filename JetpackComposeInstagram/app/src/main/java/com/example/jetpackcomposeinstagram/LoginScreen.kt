@@ -144,7 +144,17 @@ fun LoginDivider() {
 
 @Composable
 fun LoginButton(loginEnable: Boolean) {
-    Button(onClick = { }, enabled = loginEnable, modifier = Modifier.fillMaxWidth()) {
+    Button(
+        onClick = { },
+        enabled = loginEnable,
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = Color(0xFF4EA8E9),
+            disabledBackgroundColor = Color(0xFF78C8F9),
+            contentColor = Color.White,
+            disabledContentColor = Color.White
+        )
+    ) {
         Text(text = "Log in")
     }
 }
@@ -163,7 +173,8 @@ fun ForgotPassword(modifier: Modifier) {
 @Composable
 fun Password(password: String, onTextChanged: (String) -> Unit) {
     var passwordVisibility by rememberSaveable { mutableStateOf(false) }
-    TextField(value = password,
+    TextField(
+        value = password,
         onValueChange = { onTextChanged(it) },
         modifier = Modifier.fillMaxWidth(),
         placeholder = { Text(text = "Password") },
@@ -196,7 +207,8 @@ fun Password(password: String, onTextChanged: (String) -> Unit) {
 
 @Composable
 fun Email(email: String, onTextChanged: (String) -> Unit) {
-    TextField(value = email,
+    TextField(
+        value = email,
         onValueChange = { onTextChanged(it) },
         modifier = Modifier.fillMaxWidth(),
         placeholder = { Text(text = "Email") },
