@@ -46,7 +46,7 @@ fun MyRangeSlider() {
         var currenRange by remember {
             mutableStateOf(0f..10f)
         }
-        RangeSlider(values = currenRange,
+        RangeSlider(value = currenRange,
             onValueChange = { currenRange = it },
             valueRange = 0f..40f,
             steps = 9
