@@ -1,5 +1,10 @@
 package com.example.jetpackcomposecatalogo
 
+import Screen1
+import Screen2
+import Screen3
+import Screen4
+import Screen5
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -32,7 +37,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.jetpackcomposecatalogo.data.CheckInfo
+import com.example.jetpackcomposecatalogo.model.Routes
 import com.example.jetpackcomposecatalogo.ui.theme.JetpackComposeCatalogoTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,7 +55,45 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    ScaffoldExample()                }
+                    val navigationController = rememberNavController()
+                    NavHost(
+                        navController = navigationController,
+                        startDestination = Routes.Screen1.route
+                    ) {
+                        composable(Routes.Screen1.route) {
+                            Screen1(navigationController = navigationController)
+                        }
+                        composable(Routes.Screen2.route) {
+                            Screen2(navigationController = navigationController)
+                        }
+                        composable(Routes.Screen3.route) {
+                            Screen3(navigationController = navigationController)
+                        }
+                        composable(
+                            Routes.Screen4.route,
+                            arguments = listOf(
+                                navArgument("age") {
+                                    type = NavType.StringType
+                                })
+                        ) { backStackEntry ->
+                            Screen4(
+                                navigationController = navigationController,
+                                age = backStackEntry.arguments?.getString("age").orEmpty()
+                            )
+                        }
+                        composable(
+                            Routes.Screen5.route,
+                            arguments = listOf(navArgument("") { defaultValue = "Pepe" })
+                        ) { backStackEntry ->
+                            Screen5(
+                                navigationController = navigationController,
+                                name = backStackEntry.arguments?.getString("name").orEmpty()
+                            )
+                        }
+                    }
+
+                    navigationController.navigate("screen1")
+                }
             }
         }
     }
