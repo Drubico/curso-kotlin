@@ -55,44 +55,45 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    val navigationController = rememberNavController()
-                    NavHost(
-                        navController = navigationController,
-                        startDestination = Routes.Screen1.route
-                    ) {
-                        composable(Routes.Screen1.route) {
-                            Screen1(navigationController = navigationController)
-                        }
-                        composable(Routes.Screen2.route) {
-                            Screen2(navigationController = navigationController)
-                        }
-                        composable(Routes.Screen3.route) {
-                            Screen3(navigationController = navigationController)
-                        }
-                        composable(
-                            Routes.Screen4.route,
-                            arguments = listOf(
-                                navArgument("age") {
-                                    type = NavType.StringType
-                                })
-                        ) { backStackEntry ->
-                            Screen4(
-                                navigationController = navigationController,
-                                age = backStackEntry.arguments?.getString("age").orEmpty()
-                            )
-                        }
-                        composable(
-                            Routes.Screen5.route,
-                            arguments = listOf(navArgument("") { defaultValue = "Pepe" })
-                        ) { backStackEntry ->
-                            Screen5(
-                                navigationController = navigationController,
-                                name = backStackEntry.arguments?.getString("name").orEmpty()
-                            )
-                        }
-                    }
-
-                    navigationController.navigate("screen1")
+                    CrossFadeExampleAnimation()
+//                    val navigationController = rememberNavController()
+//                    NavHost(
+//                        navController = navigationController,
+//                        startDestination = Routes.Screen1.route
+//                    ) {
+//                        composable(Routes.Screen1.route) {
+//                            Screen1(navigationController = navigationController)
+//                        }
+//                        composable(Routes.Screen2.route) {
+//                            Screen2(navigationController = navigationController)
+//                        }
+//                        composable(Routes.Screen3.route) {
+//                            Screen3(navigationController = navigationController)
+//                        }
+//                        composable(
+//                            Routes.Screen4.route,
+//                            arguments = listOf(
+//                                navArgument("age") {
+//                                    type = NavType.StringType
+//                                })
+//                        ) { backStackEntry ->
+//                            Screen4(
+//                                navigationController = navigationController,
+//                                age = backStackEntry.arguments?.getString("age").orEmpty()
+//                            )
+//                        }
+//                        composable(
+//                            Routes.Screen5.route,
+//                            arguments = listOf(navArgument("") { defaultValue = "Pepe" })
+//                        ) { backStackEntry ->
+//                            Screen5(
+//                                navigationController = navigationController,
+//                                name = backStackEntry.arguments?.getString("name").orEmpty()
+//                            )
+//                        }
+//                    }
+//
+//                    navigationController.navigate("screen1")
                 }
             }
         }
